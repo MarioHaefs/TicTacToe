@@ -6,7 +6,23 @@ body {
     margin: 0;
     height: 100vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: whitesmoke;
+    background-image: url('img/background2.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    color: white;
+}
+
+body::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(91, 92, 91, 0.7);
+    z-index: -1;
 }
 
 .player-panel {
@@ -42,7 +58,7 @@ tr {
 td {
     width: 133px;
     height: 133px;
-    border: 5px solid black;
+    border: 5px solid white;
     position: relative;
     cursor: pointer;
 }
@@ -87,11 +103,10 @@ table {
 
 .horizontal-line {
     height: 10px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(255, 255, 255, 0.8);
     position: absolute;
     width: 411px;
     transform: scaleX(0.0);
-    transition: transform 225ms ease-in-out;
     z-index: 1;
 }
 
@@ -109,11 +124,16 @@ table {
 
 .game-over-img {
     position: absolute;
-    left: 0;
-    right: 0;
-    width: 100%;
+    bottom: 213px;
+    height: 450px;
+    width: 450px;
     z-index: 2;
     animation: zoomIn 225ms ease-in-out;
+    border-radius: 100%;
+}
+
+.space-top {
+    margin-top: 32px;
 }
 
 @keyframes zoomIn {
@@ -131,25 +151,26 @@ table {
 button { 
 	color: white; 
 	font-size: 30px;
-	background-color: rgb(28, 11, 127);
+	background-color: rgb(255, 0, 0);
 	border-radius: 10px;
 	padding: 12px;
 	text-decoration: none;
-	border: 1px;
+	border: 1px solid white;
     cursor: pointer;
     z-index: 3;
     position: absolute;
-    bottom: 290px;
+    bottom: 143px;
 }
 
 button:hover {
- 	background-color: blue;
+ 	background-color: rgb(255, 81, 0);
     transform: scale(1.02);
 }
 
 @media (max-width: 480px) {
     .player {
         flex-direction: column;
+        margin-right: 16px;
     }
 
     td {
@@ -163,7 +184,17 @@ button:hover {
     }
 
     .horizontal-line {
-        width: 319px;
+        width: 318px !important;
+    }
+
+    button {
+        bottom: 150px;
+    }
+
+    .game-over-img {
+        height: 400px;
+        width: 400px;
+        bottom: 237px;
     }
 
     #line-0 {
@@ -193,12 +224,19 @@ button:hover {
     }
 
     #line-6 {
-        top: 171px !important;
-        right: -111px !important;
+        top: 151px !important;
+        right: 0px !important;
     }
 
     #line-7 {
-        bottom: 147px !important;
-        right: -87px !important;
+        bottom: 151px !important;
+        right: 0px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .game-over-img {
+        height: 320px;
+        width: 320px;
     }
 }
