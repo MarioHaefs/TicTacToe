@@ -1,3 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: whitesmoke;
+}
+
+.player-panel {
+    display: flex;
+    font-size: 32px;
+    margin-bottom: 32px;
+}
+
+.player-panel img {
+    width: 60px;
+    height: 60px;
+}
+
+.player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 32px;
+}
+
+.player-inactive {
+    opacity: 0.5;
+}
+
+.space-right {
+    margin-right: 12px;
+}
+
 tr {
     width: 399px;
 }
@@ -32,6 +69,7 @@ tr td:last-child {
 
 table {
     border-collapse: collapse;
+    position: relative;
 }
 
 .shape {
@@ -45,4 +83,122 @@ table {
 
 .d-none {
     display: none;
+}
+
+.horizontal-line {
+    height: 10px;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    width: 411px;
+    transform: scaleX(0.0);
+    transition: transform 225ms ease-in-out;
+    z-index: 1;
+}
+
+.make-vertical {
+    transform: rotate(90deg) scaleX(0.0);
+}
+
+.make-diagonal {
+    transform: rotate(45deg) scaleX(0.0);
+}
+
+.make-diagonal2 {
+    transform: rotate(135deg) scaleX(0.0);
+}
+
+.game-over-img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2;
+    animation: zoomIn 225ms ease-in-out;
+}
+
+@keyframes zoomIn {
+    from{
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+        transform: scale(1); 
+    }
+}
+
+button { 
+	color: white; 
+	font-size: 30px;
+	background-color: rgb(28, 11, 127);
+	border-radius: 10px;
+	padding: 12px;
+	text-decoration: none;
+	border: 1px;
+    cursor: pointer;
+    z-index: 3;
+    position: absolute;
+    bottom: 290px;
+}
+
+button:hover {
+ 	background-color: blue;
+    transform: scale(1.02);
+}
+
+@media (max-width: 480px) {
+    .player {
+        flex-direction: column;
+    }
+
+    td {
+        width: 100px;
+        height: 100px;
+    }
+
+    .shape {
+        top: 13px;
+        left: 13px;
+    }
+
+    .horizontal-line {
+        width: 319px;
+    }
+
+    #line-0 {
+        top: 49px !important;
+    }
+
+    #line-1 {
+        top: 156px !important;
+    }
+
+    #line-2 {
+        top: 262px !important;
+    }
+
+    #line-3 {
+        top: 158px !important;
+    }
+
+    #line-4 {
+        top: 155px !important;
+        left: -107px !important;
+    }
+
+    #line-5 {
+        top: 155px !important;
+        right: -111px !important;
+    }
+
+    #line-6 {
+        top: 171px !important;
+        right: -111px !important;
+    }
+
+    #line-7 {
+        bottom: 147px !important;
+        right: -87px !important;
+    }
 }
